@@ -1,0 +1,8 @@
+<h1>Signals!</h1>
+<app-input-child [name]="name()" [surname]="surname()" [age]="age()"></app-input-child>
+<hr>
+<p>Name: {{name()}}</p>
+<p>Surname: {{surname()}}</p>
+<p>Age: {{age()}}</p>
+<hr>
+<app-model-child [(name)]="name" [(surname)]="surname" [(age)]="age"></app-model-child>

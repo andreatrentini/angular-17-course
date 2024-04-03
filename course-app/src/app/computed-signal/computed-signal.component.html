@@ -1,0 +1,7 @@
+<h1>Signals!</h1>
+<h2>Computed signal</h2>
+<p>Count value: {{count()}}</p>
+<p>Double count value: {{doubleCount()}}</p>
+<p><button (click)="resetValue()">Reset value</button></p>
+<p><button (click)="incrementValue()">Increment value</button></p>
+<p>Calculate conditional: <input type="checkbox" [(ngModel)]="calculate"> Conditional calculated count: {{conditionalCalculated()}}</p>
