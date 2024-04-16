@@ -1,0 +1,38 @@
+<h1>Signals</h1>
+<h2>Object's array signal</h2>
+
+<p>name: <input type="text" #nameInput> cognome: <input type="text" #surnameInput> classroom: <input type="text" #classroomInput>
+<button (click)="addStudent(nameInput.value, surnameInput.value, classroomInput.value)">Add</button></p>
+
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Classroom</th>
+        <th>Actions</th>
+    </tr>
+    @for(student of students(); track $index) {
+        @if(isEditMode() && $index == editIndex) {
+            <tr>
+                <th>{{$index}}</th>
+                <td><input #editName [value]="student.name"></td>
+                <td><input #editSurname [value]="student.surname"></td>
+                <td><input #editClassroom [value]="student.classroom"></td>
+                <td><button (click)="updateStudent()">save</button><button (click)="undo()">undo</button></td>
+            </tr>
+        } @else {
+            <tr>
+                <th>{{$index}}</th>
+                <td>{{student.name}}</td>
+                <td>{{student.surname}}</td>
+                <td>{{student.classroom}}</td>
+                <td><button (click)="deleteStudent($index)">delete</button><button (click)="editStudent($index)">edit</button></td>
+            </tr>
+        }
+    } @empty {
+        <tr>
+            <td colspan="5">No students present.</td>
+        </tr>
+    }
+</table>

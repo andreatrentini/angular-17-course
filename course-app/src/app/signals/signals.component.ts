@@ -11,11 +11,6 @@ export class SignalsComponent {
   count = signal(0);
 
   constructor() {
-    console.log(this.count());
-    this.count.set(5);
-    console.log(this.count());
-    this.count.update(value => value += 1);
-    console.log(this.count());
   }
 
   resetValue() {

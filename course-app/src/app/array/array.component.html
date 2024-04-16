@@ -1,0 +1,10 @@
+<h1>Signals</h1>
+<h2>Signal arrays</h2>
+<p><input type="text" #nameInput><button (click)="addName(nameInput.value)">Add</button></p>
+<ul>
+    @for(name of namesSignal(); track $index) {
+        <li>{{name}}</li>
+    } @empty {        
+        <li>Nessun nome registrato.</li>
+    }
+</ul>

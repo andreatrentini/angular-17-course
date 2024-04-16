@@ -1,0 +1,26 @@
+<h2>Signals and services</h2>
+<div>
+    <button (click)="getCars()">get cars</button>
+</div>
+<table border="1">
+    <tr>
+        <th>#</th>
+        <th>vin</th>
+        <th>year</th>
+        <th>maker</th>
+        <th>model</th>
+        <th></th>
+    </tr>
+    @for(car of cars(); track $index) {
+        <tr>
+            <td>{{car.id}}</td>
+            <td>{{car.vin}}</td>
+            <td>{{car.year}}</td>
+            <td>{{car.maker}}</td>
+            <td>{{car.model}}</td>
+            <td><button (click)="delete($index)">delete</button></td>
+        </tr>
+    } @empty {
+        <td colspan="6">No data</td>
+    }
+</table>
